@@ -74,7 +74,7 @@ class App extends Component {
       <div className='app'>
         <header>
             <div className="wrapper">
-              <h1>אוכל כיף וחברים</h1>
+              <h1>לומדים למבחן בפסיכולוגיה</h1>
                              
             </div>
         </header>
@@ -82,26 +82,27 @@ class App extends Component {
 
           <section className='add-item'>
                 <form onSubmit={this.handleSubmit}>
-                  <input type="text" name="username" placeholder="איך קוראים לך?" onChange={this.handleChange} value={this.state.username} />
-                  <input type="text" name="currentItem" placeholder="מה אתה מביא?" onChange={this.handleChange} value={this.state.currentItem} />
+                  <input type="text" name="username" placeholder="שאלה" onChange={this.handleChange} value={this.state.username} />
+                  <input type="text" name="currentItem" placeholder="תשובה" onChange={this.handleChange} value={this.state.currentItem} />
                   <button>הוסף</button>
                 </form>
           </section>
 			<section className='display-item'>
-              <div className="wrapper">
+              <p><div className="wrapper">
                 <ul>
                   {this.state.items.map((item) => {
                     return (
                       <li key={item.id}>
-                        <h3>{item.title}</h3>
-                        <p><b>מי מביא:</b> {item.user}
+						<h3><b>{item.user}</b></h3>
+                        <div>{item.title}</div>
+                        <p>
                           <button onClick={() => this.removeItem(item.id)}>מחק</button>
                         </p>
                       </li>
                     )
                   })}
                 </ul>
-              </div>
+              </div></p>
           </section>
 
         </div>
